@@ -1,3 +1,4 @@
+import sys
 import requests
 import xml.etree.ElementTree as ET
 
@@ -188,7 +189,8 @@ if __name__ == "__main__":
     }
 
     numero = secrets['numero']
-    monto = secrets['monto']
+    
+    monto = sys.argv[1] if sys.argv[0] is not None else secrets['monto']
 
     print("Intentando recarga Movistar por VES {}".format(monto))
     request_refill(session_data, numero, monto)
